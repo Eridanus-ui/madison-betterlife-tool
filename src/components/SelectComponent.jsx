@@ -312,7 +312,7 @@ const SelectComponent = memo(
             </div>
           </div>
           <button
-            className="p-2 bg-blue-500 text-white rounded-md"
+            className="p-2 bg-blue-500 text-white rounded-md button"
             type="button"
           >
             Generate Report
