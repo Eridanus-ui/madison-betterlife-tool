@@ -177,7 +177,7 @@ const SelectComponent = memo(
           </div>
 
           <div className="w-28 mr-20">
-            <div className="border border-gray-300 rounded-md p-2 bg-white">
+            <div className="border border-gray-300 rounded-md p-2 pl-1 bg-white">
               <IntersectionValueComponent
                 limitValue={inPatientValue.value}
                 colValue={numberOfMembers.value}
@@ -205,7 +205,7 @@ const SelectComponent = memo(
             />
           </div>
           <div className="w-28 mr-20">
-            <div className="border border-gray-300 rounded-md p-2 bg-white">
+            <div className="border border-gray-300 rounded-md pt-2 pb-2 pl-0.5 bg-white">
               <IntersectionValueComponent
                 limitValue={outPatientFinalValue}
                 colValue={numberOfMembers.value}
@@ -233,7 +233,7 @@ const SelectComponent = memo(
             />
           </div>
           <div className="w-28 mr-20">
-            <div className="border border-gray-300 rounded-md p-2 bg-white">
+            <div className="border border-gray-300 rounded-md p-2 pl-1 bg-white">
               <IntersectionValueComponent
                 limitValue={dentalFinalValue}
                 colValue={numberOfMembers.value}
@@ -260,7 +260,7 @@ const SelectComponent = memo(
             />
           </div>
           <div className="w-28 mr-20">
-            <div className="border border-gray-300 rounded-md p-2 bg-white">
+            <div className="border border-gray-300 rounded-md p-2 pl-1 bg-white">
               <IntersectionValueComponent
                 limitValue={opticalFinalValue}
                 colValue={numberOfMembers.value}
@@ -287,7 +287,7 @@ const SelectComponent = memo(
             />
           </div>
           <div className="w-28 mr-20">
-            <div className="border border-gray-300 rounded-md p-2 bg-white">
+            <div className="border border-gray-300 rounded-md p-2 pl-1 bg-white">
               <IntersectionValueComponent
                 limitValue={maternityFinalValue}
                 colValue={"Premiums"}
@@ -297,17 +297,26 @@ const SelectComponent = memo(
             </div>
           </div>
         </div>
-        <div className=" flex p-2 mt-10">
-          <h1 className="pr-6 text-lg text-white">Total Amount: </h1>
-          <div className="w-28 border-x-2 border-green-300 rounded-md pl-6 bg-white">
-            <TotalValueComponent
-              inPatientAmount={intersectionInpatientValue}
-              outPatientAmount={intersectionOutpatientValue}
-              dentalAmount={intersectionDentaltValue}
-              opticalAmount={intersectionOpticalValue}
-              maternityAmount={intersectionMaternityValue}
-            />
+
+        <div className="w-full md:w-1/2 flex items-center space-x-2 pt-8">
+          <h1 className="p-2 pr-4 text-lg text-white">Total Amount:</h1>
+          <div className="flex-1 mr-8">
+            <div className="w-26 p-2 pl-2 border-2 border-green-300 rounded-md bg-white">
+              <TotalValueComponent
+                inPatientAmount={intersectionInpatientValue}
+                outPatientAmount={intersectionOutpatientValue}
+                dentalAmount={intersectionDentaltValue}
+                opticalAmount={intersectionOpticalValue}
+                maternityAmount={intersectionMaternityValue}
+              />
+            </div>
           </div>
+          <button
+            className="p-2 bg-blue-500 text-white rounded-md"
+            type="button"
+          >
+            Generate Report
+          </button>
         </div>
       </div>
     );

@@ -97,9 +97,8 @@ function IntersectionValueComponent({
           };
 
           // Get the intersection value for the current limitValue and colValue
-          const intersectionValue = getValueAtIntersection(
-            limitValue,
-            colValue
+          const intersectionValue = Math.round(
+            getValueAtIntersection(limitValue, colValue)
           );
 
           // Update the intersectionValue state and call the callback function
