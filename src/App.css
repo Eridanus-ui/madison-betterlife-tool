@@ -4,7 +4,7 @@
   padding: 0 2rem 0;
   text-align: center;
 }
-.App:hover {
+.App {
   filter: drop-shadow(16px 16px 20px rgb(32, 36, 32));
 }
 
