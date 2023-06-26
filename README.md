@@ -1,6 +1,6 @@
 # Madison Betterlife SME toolkit
 
-This app has been is built and maintained by Madison Group ICT Department.
+This app is built and maintained by Madison Group ICT Department.
 
 To run the App,
 > Open your **terminal**, cd into the root folder and type ```npm i```
