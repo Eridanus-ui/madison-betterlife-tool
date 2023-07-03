@@ -221,7 +221,7 @@ const SelectComponent = memo(
       });
 
       doc.setFontSize(18);
-      doc.text("Total amount: ", 70, 175);
+      doc.text("Total Premium: ", 63, 175);
       doc.text(
         `${(
           intersectionDentaltValue +
@@ -230,9 +230,14 @@ const SelectComponent = memo(
           intersectionOpticalValue +
           intersectionOutpatientValue
         ).toLocaleString()}.`,
-        135,
+        138,
         175
       );
+
+      const advImg = new Image();
+      advImg.src = "image007.jpg";
+      // Add logo
+      doc.addImage(advImg, "PNG", 10, 220, 190, 40); // Adjust the width to 60
 
       // Add lines
       const endOfPageY = doc.internal.pageSize.height - 10;
