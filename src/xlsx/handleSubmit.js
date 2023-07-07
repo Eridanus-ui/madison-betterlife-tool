@@ -47,7 +47,7 @@ const setTotal = (
 
     toast.success(`${numberOfMembersValue} set to ${inputtedValue}`, {
       toastId: inputtedValue,
-      position: "top-center",
+      position: "bottom-left",
       autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -64,7 +64,7 @@ const setTotal = (
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
       theme: "light",

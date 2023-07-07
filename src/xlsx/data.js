@@ -61,4 +61,5 @@ const Age = [
   { value: 0, label: "18-50 Yrs" },
   { value: 1, label: "51-65 Yrs" },
 ];
+
 export { inPatient, outPatient, Dental, Maternity, Optical, Members, Age };
