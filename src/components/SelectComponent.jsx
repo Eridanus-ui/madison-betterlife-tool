@@ -242,6 +242,7 @@ const SelectComponent = memo(
       doc.text(`M+3   Members: ${setTotalNumberOfMplus3}`, 25, 110);
       doc.text(`M+4   Members: ${setTotalNumberOfMplus4}`, 25, 120);
       doc.text(`M+5   Members: ${setTotalNumberOfMplus5}`, 25, 130);
+      doc.text(`M+6   Members: ${setTotalNumberOfMplus6}`, 25, 140);
 
       doc.text(`Principal Member Age: ${ageValue.label}`, 10, 150);
 
@@ -275,22 +276,20 @@ const SelectComponent = memo(
       ];
       doc.setFontSize(15);
       doc.text("Rate Options:", 10, 162);
-      doc.text("Selected Option:", 70, 162);
-      doc.text("Amount:", 142, 162);
+      doc.text("Selected Options:", 120, 162);
 
       doc.setFontSize(12);
       let y = 175;
-      rateOptions.forEach((option, index) => {
+      rateOptions.forEach((option) => {
         doc.text(option.label, 10, y);
-        doc.text(option.amount, 102, y, { align: "right" });
-        doc.text(option.value, 161, y, { align: "right" });
+        doc.text(option.amount, 161, y, { align: "right" });
         y += 10;
       });
 
       doc.setFontSize(18);
       doc.text("Total Premium: ", 63, 230);
-      doc.text(`${calculatedTotal.toLocaleString()}.`, 138, 230, {
-        align: "left",
+      doc.text(`${calculatedTotal.toLocaleString()}.`, 133, 230, {
+        // align: "left",
       });
 
       const advImg = new Image();
