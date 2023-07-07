@@ -13,7 +13,7 @@ const setTotal = (
 ) => {
   const inputValue = parseInt(inputtedValue);
 
-  if (inputValue >= 1 && inputValue <= 15) {
+  if (inputValue >= 0 && inputValue <= 15) {
     console.log("Selected Number of Members:", numberOfMembersValue);
     console.log("Inputted Value:", inputValue);
     if (intersectionInpatientValue !== 0) {

@@ -61,9 +61,6 @@ const SelectComponent = memo(
     const [calculatedTotal, setCalculatedTotal] = useState(0);
 
     const [outPatientCheckbox, setOupatientCheckbox] = useState(false);
-    const [deentalCheckbox, setDentalCheckbox] = useState(false);
-    const [opticalCheckbox, setOpticalCheckbox] = useState(false);
-    const [maternityCheckbox, setMaternityCheckbox] = useState(false);
 
     const [totalValueOfM, setTotalValueofM] = useState(0);
     const [totalValueOfMplus1, setTotalValueofMplus1] = useState(0);
@@ -73,13 +70,21 @@ const SelectComponent = memo(
     const [totalValueOfMplus5, setTotalValueofMplus5] = useState(0);
     const [totalValueOfMplus6, setTotalValueofMplus6] = useState(0);
 
-    const [totalNumberOfM, setNumberOfM] = useState(0);
-    const [totalNumberOfMplus1, setNumberOfMplus1] = useState(0);
-    const [totalNumberOfMplus2, setNumberOfMplus2] = useState(0);
-    const [totalNumberOfMplus3, setNumberOfMplus3] = useState(0);
-    const [totalNumberOfMplus4, setNumberOfMplus4] = useState(0);
-    const [totalNumberOfMplus5, setNumberOfMplus5] = useState(0);
-    const [totalNumberOfMplus6, setNumberOfMplus6] = useState(0);
+    const totalNumberOfM = 0;
+    const totalNumberOfMplus1 = 0;
+    const totalNumberOfMplus2 = 0;
+    const totalNumberOfMplus3 = 0;
+    const totalNumberOfMplus4 = 0;
+    const totalNumberOfMplus5 = 0;
+    const totalNumberOfMplus6 = 0;
+
+    const [setTotalNumberOfM, setNumberOfM] = useState(0);
+    const [setTotalNumberOfMplus1, setNumberOfPlus1] = useState(0);
+    const [setTotalNumberOfMplus2, setNumberOfPlus2] = useState(0);
+    const [setTotalNumberOfMplus3, setNumberOfPlus3] = useState(0);
+    const [setTotalNumberOfMplus4, setNumberOfPlus4] = useState(0);
+    const [setTotalNumberOfMplus5, setNumberOfPlus5] = useState(0);
+    const [setTotalNumberOfMplus6, setNumberOfPlus6] = useState(0);
 
     const customStyles = {
       menuPortal: (provided) => ({
@@ -231,13 +236,12 @@ const SelectComponent = memo(
 
       doc.setFontSize(12);
       doc.text(`Number of Members:`, 10, 70);
-      doc.text(`M   Members: ${totalNumberOfM}`, 25, 80);
-      doc.text(`M+1 Members: ${totalNumberOfMplus1}`, 25, 90);
-      doc.text(`M+2 Members: ${totalNumberOfMplus2}`, 25, 100);
-      doc.text(`M+3 Members: ${totalNumberOfMplus3}`, 25, 110);
-      doc.text(`M+4 Members: ${totalNumberOfMplus4}`, 25, 120);
-      doc.text(`M+5 Members: ${totalNumberOfMplus5}`, 25, 130);
-      doc.text(`M+6 Members: ${totalNumberOfMplus6}`, 25, 140);
+      doc.text(`    M   Members: ${setTotalNumberOfM}`, 25, 80);
+      doc.text(`M+1   Members: ${setTotalNumberOfMplus1}`, 25, 90);
+      doc.text(`M+2   Members: ${setTotalNumberOfMplus2}`, 25, 100);
+      doc.text(`M+3   Members: ${setTotalNumberOfMplus3}`, 25, 110);
+      doc.text(`M+4   Members: ${setTotalNumberOfMplus4}`, 25, 120);
+      doc.text(`M+5   Members: ${setTotalNumberOfMplus5}`, 25, 130);
 
       doc.text(`Principal Member Age: ${ageValue.label}`, 10, 150);
 
@@ -272,20 +276,22 @@ const SelectComponent = memo(
       doc.setFontSize(15);
       doc.text("Rate Options:", 10, 162);
       doc.text("Selected Option:", 70, 162);
-      doc.text("Amount:", 140, 162);
+      doc.text("Amount:", 142, 162);
 
       doc.setFontSize(12);
       let y = 175;
       rateOptions.forEach((option, index) => {
         doc.text(option.label, 10, y);
-        doc.text(option.amount, 105, y, { align: "right" });
-        doc.text(option.value, 158, y, { align: "right" });
+        doc.text(option.amount, 102, y, { align: "right" });
+        doc.text(option.value, 161, y, { align: "right" });
         y += 10;
       });
 
       doc.setFontSize(18);
       doc.text("Total Premium: ", 63, 230);
-      doc.text(`${calculatedTotal.toLocaleString()}.`, 138, 230);
+      doc.text(`${calculatedTotal.toLocaleString()}.`, 138, 230, {
+        align: "left",
+      });
 
       const advImg = new Image();
       advImg.src = "image007.jpg";
@@ -299,11 +305,6 @@ const SelectComponent = memo(
 
       // Save the PDF document
       doc.save(`report-${currentDate}_${hours}:${minutes}:${seconds}.pdf`);
-    };
-
-    const handleGeneratePDF = () => {
-      generatePDF();
-      console.log(totalNumberOfM);
     };
 
     const handleInputChange = (e) => {
@@ -325,32 +326,32 @@ const SelectComponent = memo(
         case "M+1":
           setTotalValue = setTotalValueofMplus1;
           totalNumberOf = totalNumberOfMplus1;
-          setNumberOfMplus1(inputtedValue);
+          setNumberOfPlus1(inputtedValue);
           break;
         case "M+2":
           setTotalValue = setTotalValueofMplus2;
           totalNumberOf = totalNumberOfMplus2;
-          setNumberOfMplus2(inputtedValue);
+          setNumberOfPlus2(inputtedValue);
           break;
         case "M+3":
           setTotalValue = setTotalValueofMplus3;
           totalNumberOf = totalNumberOfMplus3;
-          setNumberOfMplus3(inputtedValue);
+          setNumberOfPlus3(inputtedValue);
           break;
         case "M+4":
           setTotalValue = setTotalValueofMplus4;
           totalNumberOf = totalNumberOfMplus4;
-          setNumberOfMplus4(inputtedValue);
+          setNumberOfPlus4(inputtedValue);
           break;
         case "M+5":
           setTotalValue = setTotalValueofMplus5;
           totalNumberOf = totalNumberOfMplus5;
-          setNumberOfMplus5(inputtedValue);
+          setNumberOfPlus5(inputtedValue);
           break;
         case "M+6":
           setTotalValue = setTotalValueofMplus6;
           totalNumberOf = totalNumberOfMplus6;
-          setNumberOfMplus6(inputtedValue);
+          setNumberOfPlus6(inputtedValue);
 
           break;
         default:
@@ -363,7 +364,7 @@ const SelectComponent = memo(
     };
 
     const handleSubmit = (variable) => {
-      const { setTotalValue, totalNumberOf, valuesRef } = setParams();
+      const { setTotalValue, totalNumberOf } = setParams();
       setTotalValue(() =>
         setTotal(
           inputtedValue,
@@ -389,6 +390,7 @@ const SelectComponent = memo(
         totalValueOfMplus5 +
         totalValueOfMplus6;
       setCalculatedTotal(newCalculatedTotal);
+      console.log(`setTotalNumberOfM: ${setTotalNumberOfM}`);
     }, [
       totalValueOfM,
       totalValueOfMplus1,
@@ -398,6 +400,11 @@ const SelectComponent = memo(
       totalValueOfMplus5,
       totalValueOfMplus6,
     ]);
+
+    const handleGeneratePDF = () => {
+      generatePDF();
+      console.log(totalNumberOfM);
+    };
 
     return (
       <div className="flex flex-col justify-between items-center">
