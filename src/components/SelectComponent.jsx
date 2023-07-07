@@ -246,7 +246,7 @@ const SelectComponent = memo(
 
       doc.text(`Principal Member Age: ${ageValue.label}`, 10, 150);
 
-      // Add rate options
+      // Add rate more options
       const rateOptions = [
         {
           label: "Inpatient Amount",
