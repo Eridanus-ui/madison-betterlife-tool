@@ -43,6 +43,8 @@ const SelectComponent = memo(
       label: "200,000",
     });
 
+    let institutionName;
+
     const [intersectionInpatientValue, setIntersectionInpatientValue] =
       useState(44500);
     const [intersectionOutpatientValue, setIntersectionOutpatientValue] =
@@ -58,7 +60,7 @@ const SelectComponent = memo(
     const [maternitySelected, setMaternitySelected] = useState(false);
     const [inputtedValue, setInputtedValue] = useState("");
 
-    const [calculatedTotal, setCalculatedTotal] = useState(0);
+    const [calculatedTotal, setCalculatedTotal] = useState(45000);
 
     const [outPatientCheckbox, setOupatientCheckbox] = useState(false);
 
@@ -231,6 +233,8 @@ const SelectComponent = memo(
 
       doc.setFontSize(12);
       doc.text(`Date: ${currentDate}`, 140, 30);
+      doc.setFontSize(18);
+      doc.text(`${institutionName}`, 40, 53);
 
       // Add content to the PDF document
 
@@ -299,7 +303,7 @@ const SelectComponent = memo(
 
       // Add lines
       const endOfPageY = doc.internal.pageSize.height - 10;
-      doc.line(10, 50, doc.internal.pageSize.width - 10, 50); // Line below the image
+      doc.line(10, 40, doc.internal.pageSize.width - 10, 40); // Line below the image
       doc.line(10, endOfPageY, doc.internal.pageSize.width - 10, endOfPageY); // Line above the end of the page
 
       // Save the PDF document
@@ -401,8 +405,12 @@ const SelectComponent = memo(
     ]);
 
     const handleGeneratePDF = () => {
-      generatePDF();
-      console.log(totalNumberOfM);
+      institutionName = prompt(`Enter the institution's name'`);
+      if (institutionName == "") {
+        alert("Please input a value.");
+      } else {
+        generatePDF();
+      }
     };
 
     return (
@@ -599,7 +607,7 @@ const SelectComponent = memo(
           <h1 className="p-2 pr-4 text-lg text-white">Total Amount:</h1>
           <div className="flex-1 mr-8">
             <div className="w-26 p-2 pl-2 border-2 border-green-300 rounded-md bg-white">
-              <TotalValueComponent calculatedTotal={calculatedTotal} />
+              <TotalValueComponent finalTotal={calculatedTotal} />
             </div>
           </div>
           <button
